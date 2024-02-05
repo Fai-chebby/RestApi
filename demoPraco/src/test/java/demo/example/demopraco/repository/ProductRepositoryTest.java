@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -73,6 +74,29 @@ class ProductRepositoryTest {
         });
     }
 
+    @Test
+    void saveAllMethod() {
+        // create product
+        Product product = new Product();
+        product.setName("product 2");
+        product.setDescription("product 2 description");
+        product.setSku("100ACBD");
+        product.setPrice(new BigDecimal(200));
+        product.setActive(true);
+        product.setImageUrl("product2.png");
+
+        // create another product (product3)
+        Product product3 = new Product();
+        product3.setName("product 3");
+        product3.setDescription("product 3 description");
+        product3.setSku("100ACBDE");
+        product3.setPrice(new BigDecimal(300));
+        product3.setActive(true);
+        product3.setImageUrl("product3.png");
+
+        // save both products
+        productRepository.saveAll(List.of(product, product3));
+    }
 
 
 }
