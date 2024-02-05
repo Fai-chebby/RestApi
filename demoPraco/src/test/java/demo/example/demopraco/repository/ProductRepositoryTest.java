@@ -2,19 +2,25 @@ package demo.example.demopraco.repository;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+
+
 @DataJpaTest
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class ProductRepositoryTest {
     @Autowired
     private ProductRepository productRepository;
 
+    @Transactional
     @Test
     void saveMethod(){
         // CREATE PRODUCT
@@ -35,18 +41,38 @@ class ProductRepositoryTest {
 
     }
     @Test
-    void  updateUsingSaveMethod(){
-        //find or retrieve an entity by id
-        Long id=1L;
-        Product product=productRepository.findById(id).get();
-        //update entity information
-        product.setName("updated product 1");
-        product.setDescription("updated product 1 desc ");
+    void updateUsingSaveMethod() {
+        // find or retrieve an entity by id
+        Long id = 1L;
+        Optional<Product> optionalProduct = productRepository.findById(id);
 
-        //save updated entity
-        productRepository.save(product);
+        // check if the product is present before proceeding with the update
+        if (optionalProduct.isPresent()) {
+            Product product = optionalProduct.get();
+            // update entity information
+            product.setName("updated product 1");
+            product.setDescription("updated product 1 desc ");
 
+            // save the updated entity
+            productRepository.save(product);
+        } else {
+            // handle the case where the product with the specified ID is not found
+            // throw an exception, log a message, or perform other actions
+        }
     }
+
+
+    @Test
+    void findById() {
+        Long id = 1L;
+        Optional<Product> optionalProduct = productRepository.findById(id);
+
+        // Use ifPresent to perform an action only if the product is present
+        optionalProduct.ifPresent(product -> {
+            // proceed with the product
+        });
+    }
+
 
 
 }
