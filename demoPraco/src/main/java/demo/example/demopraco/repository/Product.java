@@ -19,7 +19,10 @@ import java.time.LocalDateTime;
                 name = "sku_unique",
                 columnNames = "sku"
         )
-})
+}
+
+)
+
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
