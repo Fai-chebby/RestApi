@@ -98,5 +98,15 @@ class ProductRepositoryTest {
         productRepository.saveAll(List.of(product, product3));
     }
 
+    @Test
+     void findAllMethod(){
+        List<Product> products=productRepository.findAll();
+        products.forEach((p)->{
+            System.out.println(p.getName());
+                }
 
+
+        );
+
+     }
 }
