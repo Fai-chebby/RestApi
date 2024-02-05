@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,9 +33,11 @@ class ProductRepositoryTest {
         product.setPrice(new BigDecimal(100));
         product.setActive(true);
         product.setImageUrl("product1.png");
+
         //save product
        Product savedObject= productRepository.save(product);
-
+     // assertion
+        //assertNotNull(savedProduct.getId());
 
        //display product info
         System.out.println(savedObject.getId());
@@ -140,4 +143,12 @@ class ProductRepositoryTest {
    System.out.println(result);
     }
 
+    @Test
+      void findByDateCreatedBetweenMethod(){
+        // start date
+          LocalDateTime startDate= LocalDateTime.of(2022, 02, 12 ,23,
+           4
+          );
+          // edd date
+      }
     }
