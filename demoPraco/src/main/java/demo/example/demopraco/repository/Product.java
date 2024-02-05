@@ -1,16 +1,24 @@
 package demo.example.demopraco.repository;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "products", schema = "ecommerce", uniqueConstraints = {
+        @UniqueConstraint(
+                name = "sku_unique",
+                columnNames = "sku"
+        )
+})
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column( name = "stock_keeping-unit", nullable = false)
     private String sku;
+    @Column(nullable = false)
     private String name;
 
     private String description;
