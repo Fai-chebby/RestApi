@@ -99,14 +99,29 @@ class ProductRepositoryTest {
     }
 
     @Test
-     void findAllMethod(){
-        List<Product> products=productRepository.findAll();
-        products.forEach((p)->{
-            System.out.println(p.getName());
+     void findAllMethod() {
+        List<Product> products = productRepository.findAll();
+        products.forEach((p) -> {
+                    System.out.println(p.getName());
                 }
 
 
         );
 
-     }
+    }
+    @Test
+    void deleteByIdMethod() {
+        Long id = 1L;
+        productRepository.deleteById(id);
+    }
+    @Test
+    void deleteMethod(){
+        //find entity by id
+        Long id=2L;
+        Product product=productRepository.findById(id).get();
+
+        //delete (entity)
+        productRepository.delete(product);
+
+    }
 }
