@@ -14,7 +14,14 @@ import java.time.LocalDateTime;
 })
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "product_generator"
+    )
+    @SequenceGenerator(
+            name = "product_generator",
+            sequenceName = "product_Sequence_name",
+            allocationSize = 1
+    )
     private Long id;
     @Column( name = "stock_keeping-unit", nullable = false)
     private String sku;
