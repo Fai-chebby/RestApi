@@ -133,5 +133,11 @@ class ProductRepositoryTest {
         Product product1=productRepository.findById(6L).get();
         productRepository.deleteAll(List.of( product, product1));
     }
+    @Test
+    void existByIdMethod(){
+   Long id=1L;
+   boolean result =productRepository.existsById(id);
+   System.out.println(result);
+    }
 
     }
