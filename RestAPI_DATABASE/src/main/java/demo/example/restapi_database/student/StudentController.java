@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
+//import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 @RestController
 @RequestMapping(path = "/api/v1/student")
 public class StudentController {
@@ -25,4 +27,10 @@ public class StudentController {
     public void registerNewStudent(@RequestBody  Student student){
         studentService.addNewStudent(student);
     }
+
+    @DeleteMapping(path = "{studentId}")
+    public void deleteStudent(@PathVariable ("studentId") Long id){
+        studentService.deleteStudent (id);
+    }
 }
+
