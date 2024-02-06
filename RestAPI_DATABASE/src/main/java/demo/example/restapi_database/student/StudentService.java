@@ -26,7 +26,7 @@ public class StudentService {
            throw new IllegalStateException("email taken");
 
        }
-        Student save = StudentRepository.save(student);
+       studentRepository.save(student);
         System.out.println(student);
     }
 }
