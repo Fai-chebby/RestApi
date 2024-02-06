@@ -20,16 +20,15 @@ public class StudentConfig {
                    1L,
                    "FAITH",
                    "CHEBETF034@GMAIL",
-                   LocalDate.of(2002, Month.JANUARY,4),
-                   21
+                   LocalDate.of(2002, Month.JANUARY,4)
+
 
 
            );
            Student ROP= new Student(
                    "ROP",
                    "ROPF034@GMAIL",
-                   LocalDate.of(2005, Month.JANUARY,4),
-                   21
+                   LocalDate.of(2005, Month.JANUARY,4)
 
 
            );
