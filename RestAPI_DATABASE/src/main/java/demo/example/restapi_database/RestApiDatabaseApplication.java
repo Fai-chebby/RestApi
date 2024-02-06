@@ -11,7 +11,7 @@ import java.time.Month;
 import java.util.List;
 
 @SpringBootApplication
-@RestController
+
 public class  RestApiDatabaseApplication {
 
     public static void main(String[] args)
@@ -19,19 +19,6 @@ public class  RestApiDatabaseApplication {
         SpringApplication.run(RestApiDatabaseApplication.class, args);
     }
 
-    @GetMapping
-    public List<Student> hello(){
-        return  List.of(
-                new Student(
-                       1L,
-                        "FAITH",
-                        "CHEBETF034@GMAIL",
-                        LocalDate.of( 2000, Month.JANUARY, 5),
-                        21
 
-                )
-        );
-
-    }
 
 }
