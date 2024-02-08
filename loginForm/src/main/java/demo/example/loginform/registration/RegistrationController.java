@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(path="api/c1/registration")
 @AllArgsConstructor
 public class RegistrationController {
+    /**
+     *
+     */
+    private final ThreadLocal<RegistrationService> registrationService = new ThreadLocal<RegistrationService>();
     public String register(@RequestBody RegistrationRequest request ){
-        return registrationService.register(request);
+        return registrationService.get().register(request);
     }
 }
