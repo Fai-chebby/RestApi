@@ -15,12 +15,14 @@ public class userImplementation implements UserService   {
 
     @Override
     public String createUser(User user) {
-        return null;
+        userRepository.save(user);
+        return "Success";
     }
 
     @Override
     public String updateUser(User user) {
-        return null;
+        userRepository.save(user);
+        return "Success";
     }
 
     @Override
@@ -29,12 +31,12 @@ public class userImplementation implements UserService   {
     }
 
     @Override
-    public String getUser(String userId) {
-        return null;
+    public User getUser(String userId) {
+        return userRepository.findById(userId).get();
     }
 
     @Override
     public List<User> getAllUsers() {
-        return null;
+        return userRepository.findAll();
     }
 }
