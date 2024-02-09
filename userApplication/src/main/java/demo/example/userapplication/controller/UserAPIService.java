@@ -41,7 +41,7 @@ public class UserAPIService {
     }
     @DeleteMapping("/{userid}")
     public String deleteUserDetails(@PathVariable String userid) {
-        userService.deleteUser(userid); 
+        userService.deleteUser(userid);
         // Implement code to delete user details for the specified userid
         // For example: userRepository.deleteByUserId(userid);
         return "User Deleted Successfully";
