@@ -18,4 +18,13 @@ public class UserAPIService {
    this.user=user;
    return "User created Successfully";
     }
+    @PutMapping
+    public  String updateUserDetails(@RequestBody User user){
+        this.user=user;
+        return "User updated  Successfully";
+    }
+    public  String updateUserDetails(@RequestBody User user){
+        this.user=user;
+        return "User updated  Successfully";
+    }
 }
