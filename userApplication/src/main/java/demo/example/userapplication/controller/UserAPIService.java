@@ -31,16 +31,17 @@ public class UserAPIService {
     }
     @PostMapping
     public  String createUserDetails(@RequestBody User user){
-   this.user=user;
+   userService.createUser(user);
    return "User created Successfully";
     }
     @PutMapping
     public  String updateUserDetails(@RequestBody User user){
-        this.user=user;
+        userService.updateUser(user);
         return "User updated  Successfully";
     }
     @DeleteMapping("/{userid}")
     public String deleteUserDetails(@PathVariable String userid) {
+        userService.deleteUser(userid); 
         // Implement code to delete user details for the specified userid
         // For example: userRepository.deleteByUserId(userid);
         return "User Deleted Successfully";
