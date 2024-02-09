@@ -17,5 +17,9 @@ public class websecurityconf extends WebSecurityConfigureAdapter {
               .authorizeRequests()
               .antMatchers("api/v*/registration/**")
               . permitAll()
+              .anyRequest()
+              .authenticates().and ()
+              .formlogin
   }
+
 }
