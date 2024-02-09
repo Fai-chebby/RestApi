@@ -13,8 +13,9 @@ public class UserAPIService {
         return user;
         //new User("C1", "User1", "Address 1", "567");//
     }
-    @PostMapping  
+    @PostMapping
     public  String createUserDetails(@RequestBody User user){
-
+   this.user=user;
+   return "User created Successfully";
     }
 }
