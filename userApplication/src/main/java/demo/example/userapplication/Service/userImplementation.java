@@ -1,5 +1,6 @@
 package demo.example.userapplication.Service;
 
+import demo.example.userapplication.Exception.UserNotFoundException;
 import demo.example.userapplication.User.User;
 import demo.example.userapplication.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,8 @@ public class userImplementation implements UserService   {
 
     @Override
     public User getUser(String userId) {
+        if (userRepository.findById(userId).isEmpty())
+            throw  new UserNotFoundException("Requested user does not exist");
         return userRepository.findById(userId).get();
     }
 
