@@ -1,17 +1,20 @@
 package demo.example.userapplication.controller;
 
-import demo.example.userapplication.User.user;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import demo.example.userapplication.User.User;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("user")
 public class UserAPIService {
+    User user;
     @GetMapping("/{userid}") // Use curly braces for path variable
-    public user getUserDetails(@PathVariable String userid){ // Add @PathVariable annotation
+    public User getUserDetails(@PathVariable String userid){ // Add @PathVariable annotation
 
-        return new user("C1", "User1", "Address 1", "567");
+        return user;
+        //new User("C1", "User1", "Address 1", "567");//
+    }
+    @PostMapping  
+    public  String createUserDetails(@RequestBody User user){
+
     }
 }
