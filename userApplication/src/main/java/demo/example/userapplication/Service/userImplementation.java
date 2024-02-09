@@ -2,8 +2,10 @@ package demo.example.userapplication.Service;
 
 import demo.example.userapplication.User.User;
 import demo.example.userapplication.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+@Service
 
 public class userImplementation implements UserService   {
 
@@ -27,6 +29,7 @@ public class userImplementation implements UserService   {
 
     @Override
     public String deleteUser(String userId) {
+        userRepository.deleteById(userId);
         return null;
     }
 
