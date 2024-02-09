@@ -2,6 +2,8 @@ package demo.example.userapplication.controller;
 
 import demo.example.userapplication.Service.UserService;
 import demo.example.userapplication.User.User;
+import demo.example.userapplication.response.ResponseHandler;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +20,7 @@ public class UserAPIService {
     User user = null;
     @GetMapping("/{userid}") // Use curly braces for path variable
     public User getUserDetails(@PathVariable String userid){ // Add @PathVariable annotation
-
+        ResponseHandler.responseBuilder("Request user details are given here", HttpStatus.OK,userService.getUser(userid));
         return userService.getUser(userid);
         //new User("C1", "User1", "Address 1", "567");//
     }
