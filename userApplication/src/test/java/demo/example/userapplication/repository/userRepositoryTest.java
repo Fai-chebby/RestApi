@@ -37,7 +37,14 @@ public class userRepositoryTest {
        List<User>userList=  userRepository.findByUserNames("Rop");
        assertThat(userList.get(0).getUserId()).isEqualTo(user.getUserId());
        assertThat(userList.get(0).getUserAddress()).isEqualTo(user.getUserAddress());
-       
+
     }
     // Test case fail
+    @Test
+    void testFindByVendorName_NotFound()
+    {
+        List<User>userList=  userRepository.findByUserNames("Rop");
+        assertThat(userList.isEmpty()).isTrue();
+
+    }
 }
