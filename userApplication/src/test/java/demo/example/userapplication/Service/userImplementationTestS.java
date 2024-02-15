@@ -26,7 +26,8 @@ class userImplementationTestS {
     }
 
     @AfterEach
-    void tearDown() {
+    void tearDown() throws Exception{
+        autoCloseable.close();
     }
 
     @Test
