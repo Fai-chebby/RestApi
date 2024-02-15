@@ -64,7 +64,7 @@ class userImplementationTestS {
     }
 
     @Test
-    void getUser() {
+    void testGetUser() {
         mock(User.class)  ;
         mock(UserRepository.class);
         when(userRepository.findById("1")).thenReturn(Optional.ofNullable(user));
@@ -73,5 +73,8 @@ class userImplementationTestS {
 
     @Test
     void getAllUsers() {
+        mock(User.class);
+        mock(User.class);
+
     }
 }
