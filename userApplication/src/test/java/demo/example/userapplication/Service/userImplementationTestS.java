@@ -11,7 +11,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class userImplementationTestS {
     @Mock
     private UserRepository userRepository;
-    
+    private UserService userService;
+    AutoCloseable autoCloseable;
+    U
 
     @BeforeEach
     void setUp() {
