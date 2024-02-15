@@ -9,6 +9,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Optional;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -63,6 +65,10 @@ class userImplementationTestS {
 
     @Test
     void getUser() {
+        mock(User.class)  ;
+        mock(UserRepository.class);
+        when(userRepository.findById("1")).thenReturn(Optional.ofNullable(user));
+        assertThat(userService.getUser("1").getUserNames()).isEqualTo(user.getUserNames());
     }
 
     @Test
