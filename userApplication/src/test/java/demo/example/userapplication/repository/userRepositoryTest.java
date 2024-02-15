@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 @DataJpaTest
 public class userRepositoryTest {
+    // given
     @Autowired
     private UserRepository userRepository;
     User user;
@@ -15,11 +16,14 @@ public class userRepositoryTest {
     @BeforeEach
     void setUp() {
         user= new User("1","Rop","uas","1234");
-
+     userRepository.save(user);
     }
 
     @AfterEach
     void tearDown() {
+        user=null;
+        userRepository.deleteAll();
 
     }
+    // test case success
 }
