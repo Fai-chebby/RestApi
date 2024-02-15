@@ -9,6 +9,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -38,6 +39,7 @@ class userImplementationTestS {
         mock(UserRepository.class);
 
         when(userRepository.save(user)).thenReturn(user);
+        assertThat(userService.createUser(user)).isEqualTo("Success")
     }
 
     @Test
