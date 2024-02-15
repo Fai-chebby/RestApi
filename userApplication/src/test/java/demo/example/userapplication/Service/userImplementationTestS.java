@@ -9,6 +9,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -75,6 +78,10 @@ class userImplementationTestS {
     void getAllUsers() {
         mock(User.class);
         mock(User.class);
+
+        when(userRepository.findAll()).thenReturn(
+                new ArrayList<User>(Collections.singletonList(user))
+        );
 
     }
 }
