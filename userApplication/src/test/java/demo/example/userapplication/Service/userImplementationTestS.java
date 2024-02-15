@@ -10,6 +10,8 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class userImplementationTestS {
     @Mock
@@ -32,6 +34,10 @@ class userImplementationTestS {
 
     @Test
     void createUser() {
+        mock(User.class);
+        mock(UserRepository.class);
+
+        when(userRepository.save(user)).thenReturn(user);
     }
 
     @Test
