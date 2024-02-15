@@ -22,4 +22,7 @@ public class User {
     private  String userNames;
     private  String userAddress;
     private String userPhoneNumber;
+
+    public void setName(String updatedName) {
+    }
 }

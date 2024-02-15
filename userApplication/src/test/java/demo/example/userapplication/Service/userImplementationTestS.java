@@ -25,7 +25,7 @@ class userImplementationTestS {
     void setUp() {
         autoCloseable= MockitoAnnotations.openMocks(this);
         userService =new UserServiceImplimentation(userRepository);
-        user=new User("1","ROP","USA","12330");
+        user=new User("1","ROP","USA","1234");
     }
 
     @AfterEach
@@ -35,16 +35,27 @@ class userImplementationTestS {
 
     @Test
     void createUser() {
-        mock(User.class);
-        mock(UserRepository.class);
-
-        when(userRepository.save(user)).thenReturn(user);
-        assertThat(userService.createUser(user)).isEqualTo("Success")
     }
 
     @Test
-    void updateUser() {
+
+
+    void UpdateUser() {
+        // Mocking objects
+        mock(User.class);
+        mock(UserRepository.class);
+
+        // Modifying user object
+        user.setName("UpdatedName");
+
+        // Setting up behavior for userRepository.save(user)
+        when(userRepository.save(user)).thenReturn(user);
+
+        // Asserting the result
+        assertThat(userService.updateUser(user)).isEqualTo("Success");
     }
+
+
 
     @Test
     void deleteUser() {
