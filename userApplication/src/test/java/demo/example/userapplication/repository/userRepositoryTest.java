@@ -43,7 +43,7 @@ public class userRepositoryTest {
     @Test
     void testFindByVendorName_NotFound()
     {
-        List<User>userList=  userRepository.findByUserNames("Rop");
+        List<User>userList=  userRepository.findByUserNames("UJ");
         assertThat(userList.isEmpty()).isTrue();
 
     }
