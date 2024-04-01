@@ -29,6 +29,12 @@ public class LaundryController {
         laundryService.update(laundryApplication);
         return "LaundryApplication updated successfully ";
     }
+    @DeleteMapping("/{LaundryId}")
+    public String deleteUserDetails(@PathVariable String LaundryId) {
+        laundryService.deleteUser(LaundryId);
+
+        return "User Deleted Successfully";
+    }
 
 
 }
