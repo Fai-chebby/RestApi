@@ -7,34 +7,36 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
-
 @RequestMapping("Laundry")
 public class LaundryController {
-    LaundryService laundryService;
-    LaundryApplication laundryApplication=null;
+    private final LaundryService laundryService;
+
     @GetMapping("/{LaundryId}")
     public LaundryApplication getLaundryApplicationDetails(@PathVariable String LaundryId){
-        return (LaundryApplication) laundryService.getUser(LaundryId);
+        return laundryService.getLaundryApplication(LaundryId);
     }
+
     @GetMapping()
-    public LaundryApplication getAllLaundryApplicationDetails(){
-        return (LaundryApplication) laundryService.getUser();
+    public Iterable<LaundryApplication> getAllLaundryApplicationDetails(){
+        return laundryService.getAllLaundryApplications();
     }
+
     @PostMapping
     public String createLaundryApplicationDetails(@RequestBody LaundryApplication laundryApplication){
         laundryService.create(laundryApplication);
-        return "LaundryApplication created successfully ";
+        return "LaundryApplication created successfully";
     }
-    public String updateLaundryApplicationDetails(@RequestBody LaundryApplication laundryApplication){
+
+    @PutMapping("/{LaundryId}")
+    public String updateLaundryApplicationDetails(@PathVariable String LaundryId, @RequestBody LaundryApplication laundryApplication){
+        laundryApplication.setId(LaundryId); // Assuming you need to set the ID for update
         laundryService.update(laundryApplication);
-        return "LaundryApplication updated successfully ";
+        return "LaundryApplication updated successfully";
     }
+
     @DeleteMapping("/{LaundryId}")
     public String deleteUserDetails(@PathVariable String LaundryId) {
-        laundryService.deleteUser(LaundryId);
-
+        laundryService.deleteLaundryApplication(LaundryId);
         return "User Deleted Successfully";
     }
-
-
 }
