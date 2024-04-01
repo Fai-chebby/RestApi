@@ -1,21 +1,31 @@
 package Service;
 
-import java.util.List;
+import Repository.LaundryRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+@Service
+@AllArgsConstructor
 public class LaundryService implements Laundry{
+
+    LaundryRepository laundryRepository;
     @Override
     public String createUser(Laundry laundry) {
-        return null;
+        laundryRepository.save(laundry);
+        return "success";
     }
 
     @Override
     public String updateUser(Laundry laundry) {
-        return null;
+        laundryRepository.save(laundry);
+        return  "success";
     }
 
     @Override
     public String deleteUser(String laundryId) {
-        return null;
+        laundryRepository.deleteById(laundryId);
+        return  "success";
     }
 
     @Override
