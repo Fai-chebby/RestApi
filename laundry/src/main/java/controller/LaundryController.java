@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("Laundry")
 public class LaundryController {
     LaundryService laundryService;
+    LaundryApplication laundryApplication=null;
     @GetMapping("/{LaundryId}")
     public LaundryApplication getLaundryApplicationDetails(@PathVariable String LaundryId){
         return (LaundryApplication) laundryService.getUser(LaundryId);
@@ -20,6 +21,14 @@ public class LaundryController {
         return (LaundryApplication) laundryService.getUser();
     }
     @PostMapping
+    public String createLaundryApplicationDetails(@RequestBody LaundryApplication laundryApplication){
+        laundryService.create(laundryApplication);
+        return "LaundryApplication created successfully ";
+    }
+    public String updateLaundryApplicationDetails(@RequestBody LaundryApplication laundryApplication){
+        laundryService.update(laundryApplication);
+        return "LaundryApplication updated successfully ";
+    }
 
 
 }

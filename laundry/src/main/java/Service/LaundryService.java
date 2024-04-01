@@ -1,6 +1,7 @@
 package Service;
 
 import Repository.LaundryRepository;
+import demo.example.laundry.LaundryApplication;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,16 +11,18 @@ import java.util.List;
 public class LaundryService implements Laundry{
 
     LaundryRepository laundryRepository;
+
+
     @Override
-    public String createUser(Laundry laundry) {
-        laundryRepository.save(laundry);
-        return "success";
+    public String createUser(LaundryApplication laundryApplication) {
+        laundryRepository.save(laundryApplication);
+        return "Success";
     }
 
     @Override
-    public String updateUser(Laundry laundry) {
-        laundryRepository.save(laundry);
-        return  "success";
+    public String updateUser(LaundryApplication laundryApplication) {
+        laundryRepository.save(laundryApplication);
+        return "Success";
     }
 
     @Override

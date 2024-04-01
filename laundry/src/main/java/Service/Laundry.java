@@ -5,9 +5,9 @@ import demo.example.laundry.LaundryApplication;
 import java.util.List;
 
 public interface Laundry {
-    public String createUser(Laundry laundry);
+    public String createUser(LaundryApplication laundryApplication);
 
-    public String updateUser(Laundry laundry);
+    public String updateUser(LaundryApplication laundryApplication);
 
     public String deleteUser(String laundryId);
 
