@@ -11,13 +11,12 @@ public interface Laundry {
 
     public String deleteLaundryId(String laundryId);
 
-    public Laundry getLaundryId(String laundryId);
+    public LaundryApplication getLaundryId(String laundryId);
 
-    public default List<Laundry> getAllLaundryApplication() {
+    public default List<LaundryApplication> getAllLaundryApplication() {
         return null;
     }
 
-    LaundryApplication getUser(String userId);
 
     List<LaundryApplication> getAllUsers();
 }

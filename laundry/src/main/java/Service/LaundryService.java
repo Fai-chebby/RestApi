@@ -33,13 +33,13 @@ public abstract class LaundryService implements Laundry{
     }
 
     @Override
-    public LaundryApplication getUser(String userId) {
+    public LaundryApplication getLaundryId(String LaundryId) {
 
-        return laundryRepository.findById(userId).get();
+        return laundryRepository.findById(LaundryId).get();
     }
 
     @Override
-    public List<LaundryApplication> getAllUsers() {
+    public List<LaundryApplication> getAllLaundryApplication() {
         return laundryRepository.findAll();
     }
 }

@@ -20,7 +20,7 @@ public class LaundryModel {
     private String Name;
     private String Email;
     private String Location;
-    private int phone_no;
+    private String phone_no;
 
 
 }

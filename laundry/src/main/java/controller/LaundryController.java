@@ -9,21 +9,21 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 @RequestMapping("Laundry")
 public class LaundryController {
-    private final LaundryService laundryService;
+    LaundryService laundryService;
 
     @GetMapping("/{LaundryId}")
     public LaundryApplication getLaundryApplicationDetails(@PathVariable String LaundryId){
-        return (LaundryApplication) laundryService.getLaundryApplication(LaundryId);
+        return (LaundryApplication) laundryService.getLaundryId(LaundryId);
     }
 
     @GetMapping()
     public Iterable<LaundryApplication> getAllLaundryApplicationDetails(){
-        return laundryService.getAllLaundryApplications();
+        return laundryService.getAllLaundryApplication();
     }
 
     @PostMapping
     public String createLaundryApplicationDetails(@RequestBody LaundryApplication laundryApplication){
-        laundryService.create(laundryApplication);
+        laundryService.createLaundryApplication();
         return "LaundryApplication created successfully";
     }
 
