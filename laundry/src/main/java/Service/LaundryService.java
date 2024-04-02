@@ -8,36 +8,38 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 @AllArgsConstructor
-public class LaundryService implements Laundry{
+public abstract class LaundryService implements Laundry{
 
     LaundryRepository laundryRepository;
 
 
+
     @Override
-    public String createUser(LaundryApplication laundryApplication) {
+    public String createLaundryApplication(LaundryApplication laundryApplication) {
         laundryRepository.save(laundryApplication);
         return "Success";
     }
 
     @Override
-    public String updateUser(LaundryApplication laundryApplication) {
+    public String updateLaundryApplication(LaundryApplication laundryApplication) {
         laundryRepository.save(laundryApplication);
         return "Success";
     }
 
     @Override
-    public String deleteUser(String laundryId) {
+    public String deleteLaundryId(String laundryId) {
         laundryRepository.deleteById(laundryId);
         return  "success";
     }
 
     @Override
-    public Laundry getUser(String laundryId) {
-        return null;
+    public LaundryApplication getUser(String userId) {
+
+        return laundryRepository.findById(userId).get();
     }
 
     @Override
-    public List<Laundry> getAllUsers() {
-        return Laundry.super.getAllUsers();
+    public List<LaundryApplication> getAllUsers() {
+        return laundryRepository.findAll();
     }
 }

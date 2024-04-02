@@ -13,7 +13,7 @@ public class LaundryController {
 
     @GetMapping("/{LaundryId}")
     public LaundryApplication getLaundryApplicationDetails(@PathVariable String LaundryId){
-        return laundryService.getLaundryApplication(LaundryId);
+        return (LaundryApplication) laundryService.getLaundryApplication(LaundryId);
     }
 
     @GetMapping()
