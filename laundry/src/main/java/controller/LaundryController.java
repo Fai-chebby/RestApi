@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("Laundry")
 public class LaundryController {
     LaundryService laundryService;
+    private demo.example.laundry.LaundryApplication LaundryApplication;
 
     @GetMapping("/{LaundryId}")
     public LaundryApplication getLaundryApplicationDetails(@PathVariable String LaundryId){
@@ -23,20 +24,20 @@ public class LaundryController {
 
     @PostMapping
     public String createLaundryApplicationDetails(@RequestBody LaundryApplication laundryApplication){
-        laundryService.createLaundryApplication();
+        laundryService.createLaundryApplication(LaundryApplication);
         return "LaundryApplication created successfully";
     }
 
     @PutMapping("/{LaundryId}")
     public String updateLaundryApplicationDetails(@PathVariable String LaundryId, @RequestBody LaundryApplication laundryApplication){
-        laundryApplication.setId(LaundryId); // Assuming you need to set the ID for update
-        laundryService.update(laundryApplication);
+
+        laundryService.updateLaundryApplication(LaundryApplication);
         return "LaundryApplication updated successfully";
     }
 
     @DeleteMapping("/{LaundryId}")
     public String deleteUserDetails(@PathVariable String LaundryId) {
-        laundryService.deleteLaundryApplication(LaundryId);
+        laundryService.deleteLaundryId(LaundryId);
         return "User Deleted Successfully";
     }
 }
