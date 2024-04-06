@@ -6,6 +6,8 @@ public class LaundryExceptionHandler {
     public ResponseEntity<Object> handleLaundryApplicationNotFoundException
             (LaundryApplicationNotFoundException laundryApplicationNotFoundException)
     {
-        
+        LaundryException laundryException= new LaundryException(
+                laundryApplicationNotFoundException.getMessage(),
+        )
     }
 }
