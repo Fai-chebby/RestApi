@@ -35,7 +35,7 @@ public abstract class LaundryService implements Laundry{
     @Override
     public LaundryApplication getLaundryId(String LaundryId) {
         if (laundryRepository.findById(LaundryId).isEmpty())
-            throw new Exception.LaundryApplicationNotFoundException("")
+            throw new LaundryApplicationNotFoundException("Requested LaundryApplication Does Not Exist");
 
         return laundryRepository.findById(LaundryId).get();
     }
